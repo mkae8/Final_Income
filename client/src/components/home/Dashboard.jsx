@@ -1,5 +1,4 @@
 "use client";
-
 import { Card } from "./Card";
 import { ExpenseCard } from "./ExpenseCard";
 import { ExpenseChart } from "./ExpenseChart";

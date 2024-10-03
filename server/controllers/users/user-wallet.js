@@ -1,11 +1,15 @@
-import fs from "fs";
-import { sql } from "../../DATABESE/index.js";
+import { sql } from "../../DATABASE/index.js";
 
 export const userWallet = async (req, res) => {
   const { currency, balance } = req.body;
   const { userId } = res.locals;
 
-  await sql`UPDATE users SET currency=${currency} , balance=${balance} WHERE useid=${userId}`;
+  try {
+    await sql`UPDATE users SET currency=${currency}, balance=${balance} WHERE userId=${userId}`;
 
-  res.status(200).send("success");
+    res.status(200).send("success");
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("nnana");
+  }
 };

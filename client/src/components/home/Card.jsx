@@ -1,5 +1,4 @@
 "use client";
-
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -7,18 +6,25 @@ export const Card = () => {
   const [balance, setBalance] = useState();
   const token = window.localStorage.getItem("token");
   const balanceHandler = async () => {
-    const { data } = await axios.get(`http://localhost:8000/api/user/balance`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    setBalance(data);
-  };
-  useEffect(() => {
-    if (token) {
-      balanceHandler();
+    try {
+      const { data } = await axios.get(
+        `http://localhost:8000/api/user/balance`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      setBalance(data);
+    } catch (err) {
+      setError("Failed to fetch balance. Please try again later.");
     }
-  });
+    useEffect(() => {
+      if (token) {
+        balanceHandler();
+      }
+    }, []);
+  };
 
   return (
     <div className="w-[384px] h-[216px] relative rounded-[18px] bg-[#0166FF]">

@@ -51,7 +51,7 @@ const SignUp = () => {
           setError("");
           push("/user/login");
         } catch (error) {
-          setError(error.response.data);
+          setError(error);
         }
       } else {
         setError("password wrong");

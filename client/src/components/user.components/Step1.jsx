@@ -7,6 +7,7 @@ export const Step1 = ({ stepper, currencyHandler }) => {
   const [data, setData] = useState("MNT");
   const optionHnadler = (e) => {
     setData(e.target.value.split(" ")[0]);
+    
   };
 
   return (

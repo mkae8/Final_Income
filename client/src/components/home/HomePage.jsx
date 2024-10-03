@@ -6,47 +6,27 @@ import { Records } from "./records/Records";
 
 export const HomePage = () => {
   const [open, setOpen] = useState(false);
-  const [dash, setDash] = useState(true);
+  const [isDashboard, setIsDashboard] = useState(true);
 
-  const handleOpen = () => setOpen(true);
+  const toggleOpen = () => setOpen((prev) => !prev);
 
-  const handleClose = () => setOpen(false);
-
-  const buttonBoard = () => {
-    setDash(true);
-  };
-  const buttonRecords = () => {
-    setDash(false);
+  const switchView = (view) => {
+    setIsDashboard(view === "dashboard");
   };
 
   return (
     <div className="w-full relative flex flex-col items-center bg-[#F3F4F6]">
       <Header
-        handleOpen={() => {
-          handleOpen();
-        }}
-        buttonBoard={() => {
-          buttonBoard();
-        }}
-        buttonRecords={() => {
-          buttonRecords();
-        }}
+        handleOpen={toggleOpen}
+        buttonBoard={() => switchView("dashboard")}
+        buttonRecords={() => switchView("records")}
       />
 
-      {dash ? (
+      {isDashboard ? (
         <Dashboard />
       ) : (
-        <Records
-          open={open}
-          handleOpen={() => {
-            handleOpen();
-          }}
-          handleClose={() => {
-            handleClose();
-          }}
-        />
+        <Records open={open} handleOpen={toggleOpen} handleClose={toggleOpen} />
       )}
-      {/* <Records /> */}
     </div>
   );
 };

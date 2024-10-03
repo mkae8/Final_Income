@@ -71,7 +71,7 @@ export const Header = ({ buttonBoard, buttonRecords, handleOpen }) => {
               <div className="w-10 rounded-full">
                 <img
                   alt="Tailwind CSS Navbar component"
-                  src="header/profileimage.png"
+                  src="header/rere.png"
                 />
               </div>
             </div>

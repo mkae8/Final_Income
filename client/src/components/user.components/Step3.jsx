@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import { Steps } from "./steps/Steps";
-import StepSelect from "./steps/StepSelect";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { userUser } from "@/provider/UserProvider";
