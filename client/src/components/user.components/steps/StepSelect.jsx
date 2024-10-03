@@ -13,8 +13,6 @@ const StepSelect = ({ optionHnadler }) => {
       >
         <option>MNT - Mongolian Tugrik</option>
         <option>USD - USA Dollar</option>
-        <option>EUR - EU Dollar</option>
-        <option>KRW - Korea Won</option>
       </select>
       <div className="text-[#475569] text-xs font-normal mt-3">
         Your base currency should be the one you use most often. All transaction
